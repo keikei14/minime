@@ -2,7 +2,7 @@ import { Repositories } from "../repo";
 import { gameInitRequest } from "../request/gameInit";
 import { gameInitResponse } from "../response/gameInit";
 
-export default async function gameInitHandler(
+export async function gameInitHandler(
   rep: Repositories,
   req: gameInitRequest
 ): Promise<gameInitResponse> {

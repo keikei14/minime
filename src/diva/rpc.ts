@@ -17,5 +17,5 @@ export type RpcHandler<Q, R> = (rep: Repositories, reqObj: Q) => Promise<R>;
  * you can pass the implementation of this type to Express.
  */
 export type RpcWrapper = RequestHandler & {
-  rpc: <Q, R>(cmd: string, handler: RpcHandler<Q, R>) => RpcWrapper;
+  install: () => RpcWrapper;
 };

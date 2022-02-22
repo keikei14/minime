@@ -24,7 +24,7 @@ let curDate = new Date()
   .replace(/\..+/, "");
 let aCurDate = curDate + ".0";
 
-export default async function attendHandler(
+export async function attendHandler(
   rep: Repositories,
   req: attendRequest
 ): Promise<attendResponse> {

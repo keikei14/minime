@@ -3,9 +3,6 @@ import express from "express";
 import { Form } from "multiparty";
 import read from "raw-body";
 import { inflateSync } from "zlib";
-
-import attendHandler from "./attend";
-import gameInitHandler from "./gameInit";
 import testHandler from "./test";
 
 import createSqlWrapper from "../sql";
@@ -16,9 +13,6 @@ const debug = logger("app:diva:io");
 export default function diva(db: DataSource) {
   const wrapper = createSqlWrapper(db);
   const app = express();
-  // Boot
-  wrapper.rpc("game_init", gameInitHandler);
-  wrapper.rpc("attend", attendHandler);
 
   // Middleware
   app.use(async function(req, res, next) {
@@ -90,6 +84,7 @@ export default function diva(db: DataSource) {
     }
   });
 
+  wrapper.install();
   app.use("/", wrapper);
 
   return app;
