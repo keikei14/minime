@@ -51,6 +51,7 @@ export const PORT_IDZ = {
 const startupHosts = new Map<string, string>();
 
 startupHosts.set("SDDF", `${HOST_EXT}:${PORT_IDZ.USERDB.TCP}`);
+startupHosts.set("SBZV", `${HOST_EXT}:${PORT_DIVA}`);
 
 const startupUris = new Map<string, string>();
 
